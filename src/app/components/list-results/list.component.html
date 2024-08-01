@@ -1,5 +1,4 @@
-<div class="content">
-
+<div class="content list animate__animated animate__fadeIn">
   <div class="header">
     <div class="search">
       <input type="text" [formControl]="paramSearch" placeholder="¿Qué quieres reproducir?">
@@ -19,7 +18,7 @@
   </div>
 
   @if (resultSearch ) {
-  <div class="list animate__animated animate__fadeIn">
+  <div>
     <div class="songs">
       <app-list-songs [tracks]="resultSearch.tracks"></app-list-songs>
     </div>

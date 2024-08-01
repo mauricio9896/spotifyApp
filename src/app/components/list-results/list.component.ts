@@ -17,6 +17,9 @@ export class ListComponent implements OnInit {
   constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
+
+    this.search('s');
+
     this.paramSearch.valueChanges
       .pipe(
         debounceTime(500)

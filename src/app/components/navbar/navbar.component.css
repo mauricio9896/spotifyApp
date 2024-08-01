@@ -1,0 +1,28 @@
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li{
+    margin: 5px 0px;
+    padding: 5px 0px;
+    cursor: pointer;
+    border-radius: var(--unidad);
+    &:hover{
+      background-color: var(--third-color);
+    }
+  }
+  a{
+    color: var(--fourth-color);
+    text-decoration: none;
+    padding: 5px;
+    i{
+      margin-right: 10px;
+    }
+  }
+}
+
+.active {
+  color: whitesmoke !important;
+  font-weight: 550;
+}
