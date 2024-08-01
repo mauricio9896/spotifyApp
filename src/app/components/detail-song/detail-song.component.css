@@ -1,5 +1,13 @@
+.content {
+  height: calc(100vh - 2 * var(--unidad) - 40px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--unidad);
+  padding: 10px;
+}
+
 .banner-song {
-  height: 230px;
+  height: 180px;
   background: rgb(36, 47, 36);
   background: linear-gradient(
     0deg,
@@ -44,37 +52,6 @@
 }
 
 .player{
-  display: flex;
-  gap: 40px;
-  justify-content: start;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.btn-play button {
-  background-color: #1ed760;
-  color: var(--third-color);
-  height: 50px;
-  width: 50px;
-  font-size: 16px;
-  border-radius: 50%;
-  border: none;
-}
-
-.slider{
-  display: flex;
-  align-items: center;
-  i{
-    font-size: 12px;
-    margin-right: 10px;
-  }
-}
-
-input[type="range"] {
-  width: 150px;
-  height: 4px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  opacity: 0.7;
-  transition: opacity .2s;
+  width: 100%;
+  margin-top: 20px;
 }

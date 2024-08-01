@@ -18,6 +18,7 @@ import { ConvertTimePipe } from './pipes/convert-time.pipe';
 import { CardArtistComponent } from './components/card-artist/card-artist.component';
 import { CardAlbumComponent } from './components/card-album/card-album.component';
 import { DetailSongComponent } from './components/detail-song/detail-song.component';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DetailSongComponent } from './components/detail-song/detail-song.compon
     ConvertTimePipe,
     CardArtistComponent,
     CardAlbumComponent,
-    DetailSongComponent
+    DetailSongComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
