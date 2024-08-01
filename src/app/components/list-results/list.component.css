@@ -1,0 +1,46 @@
+.content {
+  height: calc(100vh - 2 * var(--unidad) - 20px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--unidad);
+  overflow-y: scroll;
+}
+
+.search {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search input[type="text"] {
+  padding: 8px 40px 8px 20px;
+  border: 1px solid var(--second-color);
+  border-radius: 20px;
+  background-color: var(--third-color);
+  width: 40%;
+  color: whitesmoke;
+  height: 30px;
+}
+
+.search input:focus {
+  outline: 1px solid var(--third-color);
+}
+
+.search input:hover {
+  outline: 1px solid var(--third-color);
+}
+
+.search .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 43%;
+  transform: translateY(-50%);
+  color: var(--mi-color);
+}
+
+.list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

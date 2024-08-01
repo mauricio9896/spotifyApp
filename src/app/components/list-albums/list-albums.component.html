@@ -1,0 +1,8 @@
+<div class="content">
+  <h3>Álbumes </h3>
+  <div class="list-albums">
+      @for (album of albums.items; track $index) {
+        <app-card-album [album]="album"></app-card-album>
+      }
+    </div>
+</div>

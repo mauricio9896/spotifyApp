@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-color: #000000;
+  --second-color: #121212;
+  --third-color: #242424;
+  --fourth-color: #767676;
+  --prueba: lightblue;
+  --unidad: 8px;
+}
+
+body {
+  background-color: var(--primary-color);
+  padding: var(--unidad);
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  border-radius: var(--unidad);
+  padding: 10px;
+  background-color: var(--second-color);
+  color: whitesmoke;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* La pista del scroll */
+::-webkit-scrollbar-track {
+  background: var(--third-color);
+  border-radius: 10px;
+}
+/* la barra del scroll */
+::-webkit-scrollbar-thumb {
+  background: var(--fourth-color);
+  border-radius: 10px;
+}

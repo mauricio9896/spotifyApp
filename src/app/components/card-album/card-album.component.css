@@ -1,0 +1,31 @@
+.card{
+  padding: 12px;
+  width: 130px;
+  overflow: hidden;
+}
+
+.card:hover{
+  background-color: var(--third-color);
+  cursor: pointer;
+}
+
+.image{
+  img{
+    height: 130px;
+    width: 130px;
+  }
+}
+
+.name{
+  height: 22px;
+  overflow: hidden;
+}
+
+.name span {
+  font-size: 14px;
+}
+
+.info span {
+  color: var(--fourth-color);
+  font-size: 12px;
+}

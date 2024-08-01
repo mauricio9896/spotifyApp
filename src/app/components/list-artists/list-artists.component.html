@@ -1,0 +1,8 @@
+<div class="content">
+  <h3>Artistas</h3>
+  <div class="list-artists">
+      @for (artist of artists.items; track $index) {
+          <app-card-artist [artist]="artist" ></app-card-artist>
+      }
+    </div>
+</div>

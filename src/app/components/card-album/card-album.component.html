@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="image">
+    <img [src]="album.images[0].url">
+  </div>
+  <div class="name">
+    <span>{{ album.name }}</span>
+  </div>
+  <div class="info">
+    <span>{{ album.release_date | date: 'yyyy'}}, {{ album.artists[0].name }}</span>
+  </div>
+</div>

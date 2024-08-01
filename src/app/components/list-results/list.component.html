@@ -1,0 +1,24 @@
+<div class="content">
+
+  <div class="search">
+    <input type="text" [formControl]="paramSearch" placeholder="¿Qué quieres reproducir?">
+    <span class="input-icon">
+      <i class="fas fa-search"></i>
+    </span>
+    <!-- <button (click)="login()"> Login</button> -->
+  </div>
+
+  @if (resultSearch ) {
+  <div class="list animate__animated animate__fadeIn">
+    <div class="songs">
+      <app-list-songs [tracks]="resultSearch.tracks"></app-list-songs>
+    </div>
+    <div class="artist">
+      <app-list-artists [artists]="resultSearch.artists"></app-list-artists>
+    </div>
+    <div class="albums">
+      <app-list-albums [albums]="resultSearch.albums"></app-list-albums>
+    </div>
+  </div>
+  }
+</div>

@@ -1,0 +1,4 @@
+.list-artists{
+  display: flex;
+  justify-content: space-between;
+}

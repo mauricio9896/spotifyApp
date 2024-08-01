@@ -1,0 +1,25 @@
+<div class="content">
+  <div class="image" (click)="playSong(song)" [routerLink]='"/song/" + song.id'>
+    <i class="fa-solid fa-play"></i>
+    <img [src]="song.album.images[0].url">
+  </div>
+
+  <div class="info">
+    <div class="name">
+      <span>{{song.name}}</span>
+    </div>
+    <div class="artists">
+      <span>{{song.artists[0].name}} </span>
+    </div>
+  </div>
+
+  <div class="save-song">
+    <button (click)="saveSong(song)">
+      <i class="fa-solid fa-circle-plus"></i>
+    </button>
+  </div>
+
+  <div class="duration">
+    <span>{{ song.duration_ms | convertTime}}</span>
+  </div>
+</div>

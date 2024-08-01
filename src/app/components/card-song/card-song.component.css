@@ -1,0 +1,90 @@
+.content {
+  display: flex;
+  gap: calc( 4px + var(--unidad) );
+  padding: var(--unidad);
+  align-items: center;
+  border-radius: var(--unidad);
+  width: 80%;
+  cursor: default;
+  &:hover{
+    background-color: var(--third-color);
+  }
+}
+
+.image{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  img{
+    height: 40px;
+    width: 40px;
+    border-radius: var(--unidad);
+  }
+}
+
+.image i {
+  position: absolute;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.image:hover i {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.info {
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+}
+
+.info .name span {
+  font-size: 14px;
+}
+
+.info .artists span {
+  color: var(--fourth-color);
+  font-size: 12px;
+}
+
+.save-song {
+  flex: 0.1;
+}
+
+.save-song button {
+  font-size: 16px;
+  color: var(--fourth-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+.duration{
+  flex: 0.1;
+}
+
+.duration span {
+  color: var(--fourth-color);
+  font-size: 12px;
+}
