@@ -10,8 +10,11 @@ export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
   private client_secret: string = '7ac4bb51761a4fd6a674f7be448d8c1f';
+  // private token = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // this.getToken().subscribe(token => this.token = token);
+  }
 
   getAuthorizationSpotify(): string {
     const authEndpoint: string = 'https://accounts.spotify.com/authorize';
@@ -100,4 +103,20 @@ export class SpotifyService {
       })
     );
   }
+
+  // playSong(): Observable<any> {
+  //   const apiUrl = 'https://api.spotify.com/v1/me/player/play';
+  //   const headers = new HttpHeaders({
+  //     'Authorization': `Bearer ${this.token}`,
+  //     'Content-Type': 'application/json'
+  //   });
+  //   const body = {
+  //     context_uri: 'spotify:album:5ht7ItJgpBH7W6vJ5BqpPr',
+  //     offset: {
+  //       position: 5
+  //     },
+  //     position_ms: 0
+  //   };
+  //   return this.http.put(apiUrl, body, { headers });
+  // }
 }
