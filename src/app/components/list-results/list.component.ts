@@ -42,8 +42,4 @@ export class ListComponent implements OnInit {
       }
     );
   }
-
-  login(){
-    window.location.href = this.spotifyService.getAuthorizationUrl();
-  }
 }

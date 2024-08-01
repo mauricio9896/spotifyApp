@@ -5,14 +5,24 @@ import { ListComponent } from './components/list-results/list.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta predeterminada
-  { path: 'home', component:  ListComponent, },
-  { path: 'search', component: ListComponent },
-  { path: 'home/song/:id', component: DetailSongComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      { path: 'search', component: ListComponent },
+      { path: 'song/:id', component: DetailSongComponent },
+    ],
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((x) => x.LoginModule),
+  },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

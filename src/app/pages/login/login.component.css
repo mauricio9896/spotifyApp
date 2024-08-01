@@ -1,0 +1,31 @@
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 2* var(--unidad));
+  gap: calc(4*var(--unidad));
+}
+
+.image img {
+  height: 200px;
+}
+
+button {
+  width: 300px;
+  height: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px;
+  border: none;
+  &:hover{
+    background-color: var(--third-color);
+    color: whitesmoke;
+  }
+}
+
+#btn-a{
+  background-color: #1baf50 ;
+}
