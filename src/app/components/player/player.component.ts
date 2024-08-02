@@ -1,5 +1,7 @@
+import { FormControl } from '@angular/forms';
 import { SpotifyService } from '../../services/spotify.service';
 import { Component, Input } from '@angular/core';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-player',
@@ -9,11 +11,13 @@ import { Component, Input } from '@angular/core';
 export class PlayerComponent {
 
   @Input() track !: any;
+  public volumen : FormControl = new FormControl(100);
 
-  constructor( private spotifyService : SpotifyService ){}
+  constructor( private spotifyService : SpotifyService ){
+    // this.volumen.valueChanges.pipe(debounceTime(50)).subscribe(value => this.spotifyService.setVolumen(value));
+  }
 
   playSong( track : any ){
-    console.log('Play:', track);
-    this.spotifyService.playSong( track.uri ).subscribe( res => console.log('res :>> ', res));
+    // this.spotifyService.playSong( track.uri );
   }
 }

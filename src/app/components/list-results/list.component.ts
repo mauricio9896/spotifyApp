@@ -41,6 +41,7 @@ export class ListComponent implements OnInit {
     if(this.spotifyService.token !== '') return
     const token = this.obterTokenUrlCallback();
     this.spotifyService.token = token;
+    this.spotifyService.getDataUser();
   }
 
   obterTokenUrlCallback() {

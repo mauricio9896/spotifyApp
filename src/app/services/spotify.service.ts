@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +9,21 @@ import { map, Observable, switchMap } from 'rxjs';
 export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
-  private client_secret: string = '7ac4bb51761a4fd6a674f7be448d8c1f';
-  public token : string = '';
+  // private client_secret: string = '7ac4bb51761a4fd6a674f7be448d8c1f';
+  private _token: string = '';
+  private spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
 
-  constructor(private http: HttpClient) {}
+  get token(): string {
+    return this._token;
+  }
+
+  set token(token: string) {
+    this._token = token;
+  }
+
+  constructor(private http: HttpClient) {
+    this.spotifyApi = new SpotifyWebApi();
+  }
 
   getAuthorizationSpotify(): string {
     const authEndpoint: string = 'https://accounts.spotify.com/authorize';
@@ -31,68 +43,59 @@ export class SpotifyService {
     return `${authEndpoint}?${responseType}&client_id=${this.client_id}&scope=${scopes}&redirect_uri=${redirectUrl}`;
   }
 
-  getToken(): Observable<any> {
-    const authUrl = 'https://accounts.spotify.com/api/token';
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: 'Basic ' + btoa(this.client_id + ':' + this.client_secret),
-    });
-    const body = new URLSearchParams();
-    body.set('grant_type', 'client_credentials');
-    return this.http.post(authUrl, body.toString(), { headers }).pipe(
-      map((res: any) => {
-        if (res) {
-          return res.access_token;
-        }
-      })
-    );
-  }
+  // getToken(): Observable<any> {
+  //   const authUrl = 'https://accounts.spotify.com/api/token';
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/x-www-form-urlencoded',
+  //     Authorization: 'Basic ' + btoa(this.client_id + ':' + this.client_secret),
+  //   });
+  //   const body = new URLSearchParams();
+  //   body.set('grant_type', 'client_credentials');
+  //   return this.http.post(authUrl, body.toString(), { headers }).pipe(
+  //     map((res: any) => {
+  //       if (res) {
+  //         return res.access_token;
+  //       }
+  //     })
+  //   );
+  // }
 
   search(query: string, type: string): Observable<any> {
-    return this.getToken().pipe(
-      switchMap((token) => {
-        const headers = new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        });
-        const url = `${this.url}/search?q=${query}&type=${type}&limit=5`;
-        return this.http.get(url, { headers });
-      })
-    );
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + this.token,
+    });
+    const url = `${this.url}/search?q=${query}&type=${type}&limit=5`;
+    return this.http.get(url, { headers });
   }
 
-  detailById(type:string , id: string): Observable<any> {
+  detailById(type: string, id: string): Observable<any> {
     const url = `${this.url}/${type}s/${id}`;
-    return this.getToken().pipe(
-      switchMap((token) => {
-        const headers = new HttpHeaders({
-          Authorization: `Bearer ${token}`,
-        });
-        return this.http.get(url, { headers });
-      })
-    );
-  }
-
-  getActivePlayer(): Observable<any> {
-    return this.getToken().pipe(
-      switchMap((token) => {
-        const headers = new HttpHeaders({
-          Authorization: `Bearer ${token}`,
-        });
-        return this.http.get(`${this.url}/me/player`, { headers });
-      })
-    );
-  }
-
-  playSong(uri: string): Observable<any> {
-    const apiUrl = 'https://api.spotify.com/v1/me/player/play';
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`,
-      'Content-Type': 'application/json',
     });
-    const body = {
-      uris: [uri],
-      position_ms: 300,
-    };
-    return this.http.put(apiUrl, body, { headers });
+    return this.http.get(url, { headers });
+  }
+
+  // getActivePlayer(): Observable<any> {
+  //   return this.getToken().pipe(
+  //     switchMap((token) => {
+  //       const headers = new HttpHeaders({
+  //         Authorization: `Bearer ${token}`,
+  //       });
+  //       return this.http.get(`${this.url}/me/player`, { headers });
+  //     })
+  //   );
+  // }
+
+  getDataUser() {
+    this.spotifyApi.setAccessToken(this.token);
+    this.spotifyApi.getMe().then(
+      function (data) {
+        console.log('Información del usuario', data);
+      },
+      function (err) {
+        console.error(err);
+      }
+    );
   }
 }

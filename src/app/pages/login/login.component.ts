@@ -12,17 +12,6 @@ export class LoginComponent {
 
   constructor(private spotifyService: SpotifyService, private router: Router) {}
 
-
-  verifyToken() {
-    this.spotifyService.getToken().subscribe(token => {
-      if (token) {
-        this.router.navigate(['/home']);
-      } else {
-        alert('Token not found');
-      }
-    });
-  }
-
   openLogin() {
     window.location.href = this.spotifyService.getAuthorizationSpotify();
   }
