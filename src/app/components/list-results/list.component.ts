@@ -10,35 +10,42 @@ import { debounceTime } from 'rxjs';
   styleUrl: './list.component.css',
 })
 export class ListComponent implements OnInit {
-
   public paramSearch = new FormControl('');
-  public resultSearch !: ResultSearch;
+  public resultSearch!: ResultSearch;
 
   constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
-
     this.search('s');
+    this.verifyToken();
 
-    this.paramSearch.valueChanges
-      .pipe(
-        debounceTime(500)
-      )
-      .subscribe(value  => {
-        if (value){
-          this.search(value);
-        }
-      });
+    this.paramSearch.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
+      if (value) {
+        this.search(value);
+      }
+    });
   }
 
-  search( param : string ): void {
+  search(param: string): void {
     this.spotifyService.search(param, 'track,artist,album').subscribe(
-      (response : ResultSearch ) => {
+      (response: ResultSearch) => {
         this.resultSearch = response;
       },
       (error) => {
         console.error(error);
       }
     );
+  }
+
+  verifyToken(){
+    if(this.spotifyService.token !== '') return
+    const token = this.obterTokenUrlCallback();
+    this.spotifyService.token = token;
+  }
+
+  obterTokenUrlCallback() {
+    if (!window.location.hash) return '';
+    const params = window.location.hash.substring(1).split('&');
+    return params[0].split('=')[1];
   }
 }

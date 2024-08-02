@@ -9,7 +9,7 @@ export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
   private client_secret: string = '7ac4bb51761a4fd6a674f7be448d8c1f';
-  private token : string = '';
+  public token : string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -85,15 +85,10 @@ export class SpotifyService {
 
   playSong(uri: string): Observable<any> {
     const apiUrl = 'https://api.spotify.com/v1/me/player/play';
-
-    const token =
-      'BQBpoybNdtoEDHJCoLnbieLYgKBoScy3rMMYfS3OllD3QXSU-EshFBKztapgok1QF2PzaYPRwT5a8k1Y6jOIFCDmXXOvU2KNr-ujUo-eYp5cdbiRBCktr3hyZs8F-uUbMdUeIvITXZT58GxAOohNrQPPDQYkBjpXj4bx4Ac0E1H91EeuMHDTgclTICO3QNjhypMksgZ4IaP3nH8DJJGTJlSWNdaRHg2TdCC-lyyI66CBI7A1Nw';
-
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${this.token}`,
       'Content-Type': 'application/json',
     });
-
     const body = {
       uris: [uri],
       position_ms: 300,
