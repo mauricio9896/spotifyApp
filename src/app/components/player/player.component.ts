@@ -1,23 +1,26 @@
 import { FormControl } from '@angular/forms';
 import { SpotifyService } from '../../services/spotify.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
+import { PlayerService } from '../../services/player.service';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrl: './player.component.css'
 })
-export class PlayerComponent {
+export class PlayerComponent implements OnInit {
 
   @Input() track !: any;
   public volumen : FormControl = new FormControl(100);
 
-  constructor( private spotifyService : SpotifyService ){
-    // this.volumen.valueChanges.pipe(debounceTime(50)).subscribe(value => this.spotifyService.setVolumen(value));
+  constructor( private playerService : PlayerService ){}
+
+  ngOnInit(): void {
+    this.volumen.valueChanges.pipe(debounceTime(20)).subscribe(value => this.playerService.setVolumen(value));
   }
 
   playSong( track : any ){
-    // this.spotifyService.playSong( track.uri );
+    this.playerService.playSong( track.uri );
   }
 }

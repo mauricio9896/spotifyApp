@@ -9,19 +9,9 @@ import SpotifyWebApi from 'spotify-web-api-js';
 export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
-  private _token: string = '';
-  private spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
-
-  get token(): string {
-    return this._token;
-  }
-
-  set token(token: string) {
-    this._token = token;
-  }
+  public token: string = '';
 
   constructor(private http: HttpClient) {
-    this.spotifyApi = new SpotifyWebApi();
   }
 
   getAuthorizationSpotify(): string {
@@ -56,17 +46,5 @@ export class SpotifyService {
       Authorization: `Bearer ${this.token}`,
     });
     return this.http.get(url, { headers });
-  }
-
-  getDataUser() {
-    this.spotifyApi.setAccessToken(this.token);
-    this.spotifyApi.getMe().then(
-      function (data) {
-        console.log('Información del usuario', data);
-      },
-      function (err) {
-        console.error(err);
-      }
-    );
   }
 }

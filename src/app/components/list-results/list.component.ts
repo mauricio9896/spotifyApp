@@ -1,3 +1,4 @@
+import { PlayerService } from './../../services/player.service';
 import { FormControl } from '@angular/forms';
 import { ResultSearch } from './../../models/resultSearch.model';
 import { SpotifyService } from './../../services/spotify.service';
@@ -13,12 +14,11 @@ export class ListComponent implements OnInit {
   public paramSearch = new FormControl('');
   public resultSearch!: ResultSearch;
 
-  constructor(private spotifyService: SpotifyService) {}
+  constructor(private spotifyService: SpotifyService, private playerService : PlayerService ) {}
 
   ngOnInit(): void {
-    this.search('s');
     this.verifyToken();
-
+    this.search('s');
     this.paramSearch.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
       if (value) {
         this.search(value);
@@ -39,12 +39,12 @@ export class ListComponent implements OnInit {
 
   verifyToken(){
     if(this.spotifyService.token !== '') return
-    const token = this.obterTokenUrlCallback();
+    const token = this.getTokenUrl();
     this.spotifyService.token = token;
-    this.spotifyService.getDataUser();
+    this.playerService.getDataUser();
   }
 
-  obterTokenUrlCallback() {
+  getTokenUrl() {
     if (!window.location.hash) return '';
     const params = window.location.hash.substring(1).split('&');
     return params[0].split('=')[1];
