@@ -34,7 +34,6 @@ export class ListComponent implements OnInit {
   search( param : string ): void {
     this.spotifyService.search(param, 'track,artist,album').subscribe(
       (response : ResultSearch ) => {
-        console.log(response);
         this.resultSearch = response;
       },
       (error) => {

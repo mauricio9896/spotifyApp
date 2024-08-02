@@ -1,23 +1,30 @@
-@if (track) {
-  <div class="content">
+@if (detail) {
+<div class="content">
 
-    <div class="banner-song">
-      <div class="content-song">
-        <div class="image">
-          <img [src]="track.album.images[0].url" alt="">
-        </div>
-        <div class="detail-song">
-          <span class="song">Canción</span>
-          <span id="name-song">{{
-            track.name }}</span>
-          <span class="song" style="font-weight:500">{{ track.album.artists[0].name }} | {{track.album.name }} | {{
-            track.album.release_date | date:'yyyy' }} | {{ track.duration_ms | convertTime }} </span>
-        </div>
+  <div class="banner-song">
+    <div class="content-song">
+      <div class="image">
+        @if ( type === 'track') {
+        <img [src]="detail.album.images[0].url">
+        }@else{
+        <img [src]="detail.images[0].url">
+        }
+      </div>
+      <div class="detail-song">
+        <span class="song">{{ type }}</span>
+        <span id="name-song">{{
+          detail.name }}</span>
+        <span class="song" style="font-weight:500">
+          {{ detail | detail }}
+        </span>
       </div>
     </div>
-
-    <div class="player">
-      <app-player [track]="track"></app-player>
-    </div>
   </div>
+
+  @if (type === 'track') {
+  <div class="player">
+    <app-player [track]="detail"></app-player>
+  </div>
+  }
+</div>
 }

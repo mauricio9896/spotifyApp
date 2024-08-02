@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [routerLink]='"/home/detail/" + artist.type + "/" + artist.id'>
   <div class="image">
     <img [src]="artist.images[0].url">
   </div>

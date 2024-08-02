@@ -19,6 +19,7 @@ import { CardArtistComponent } from './components/card-artist/card-artist.compon
 import { CardAlbumComponent } from './components/card-album/card-album.component';
 import { DetailSongComponent } from './components/detail-song/detail-song.component';
 import { PlayerComponent } from './components/player/player.component';
+import { DetailPipe } from './pipes/detail.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PlayerComponent } from './components/player/player.component';
     CardArtistComponent,
     CardAlbumComponent,
     DetailSongComponent,
-    PlayerComponent
+    PlayerComponent,
+    DetailPipe
   ],
   imports: [
     BrowserModule,

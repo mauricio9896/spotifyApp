@@ -43,6 +43,7 @@
 .song{
   font-size: 12px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 #name-song {

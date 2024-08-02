@@ -9,11 +9,9 @@ export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
   private client_secret: string = '7ac4bb51761a4fd6a674f7be448d8c1f';
-  private token = '';
+  private token : string = '';
 
-  constructor(private http: HttpClient) {
-    this.getToken().subscribe((token) => (this.token = token));
-  }
+  constructor(private http: HttpClient) {}
 
   getAuthorizationSpotify(): string {
     const authEndpoint: string = 'https://accounts.spotify.com/authorize';
@@ -28,8 +26,9 @@ export class SpotifyService {
       'playlist-read-private',
       'playlist-read-collaborative',
     ].join('%20');
+    const responseType = `response_type=token&show_dialog=true`;
 
-    return `${authEndpoint}?response_type=code&client_id=${this.client_id}&scope=${scopes}&redirect_uri=${redirectUrl}`;
+    return `${authEndpoint}?${responseType}&client_id=${this.client_id}&scope=${scopes}&redirect_uri=${redirectUrl}`;
   }
 
   getToken(): Observable<any> {
@@ -61,11 +60,10 @@ export class SpotifyService {
     );
   }
 
-  getTrack(id: string): Observable<any> {
-    const url = `${this.url}/tracks/${id}`;
+  detailById(type:string , id: string): Observable<any> {
+    const url = `${this.url}/${type}s/${id}`;
     return this.getToken().pipe(
       switchMap((token) => {
-        console.log('token :>> ', token);
         const headers = new HttpHeaders({
           Authorization: `Bearer ${token}`,
         });
@@ -80,7 +78,6 @@ export class SpotifyService {
         const headers = new HttpHeaders({
           Authorization: `Bearer ${token}`,
         });
-
         return this.http.get(`${this.url}/me/player`, { headers });
       })
     );
@@ -88,14 +85,14 @@ export class SpotifyService {
 
   playSong(uri: string): Observable<any> {
     const apiUrl = 'https://api.spotify.com/v1/me/player/play';
+
     const token =
-      'BQAupA0aeh-gRwv3EgUTqHGQckSaVxox_qtXwnUtlt8QocPpN8x02c6O2I_UcP-j-nzhQlxC9WHTIwas2bzNm-SjAHW0RbsHGS7BQ248eaIGpo7UmbRD6El4XvL_ZPCu105dVToaghN2f2W9OiIrarcnn4o5TZBEvCs5H5lhCu3SHHenWtZ402GuHWl-d8ihDKKt9iNTj7K-VQqpsiZby7IZITSCKhCHGgxHYvxNjkOkcUix_ZNPg4Ef3AC3Pbyd-KCIo7ka1tHgxNHDy6GAHG5JBgmjunJgyTIY31ek38gpMqeStuLaqQBARBpSwKG0m7ZWZdM87eWDPBV26ad7KXyFk-MJ';
+      'BQBpoybNdtoEDHJCoLnbieLYgKBoScy3rMMYfS3OllD3QXSU-EshFBKztapgok1QF2PzaYPRwT5a8k1Y6jOIFCDmXXOvU2KNr-ujUo-eYp5cdbiRBCktr3hyZs8F-uUbMdUeIvITXZT58GxAOohNrQPPDQYkBjpXj4bx4Ac0E1H91EeuMHDTgclTICO3QNjhypMksgZ4IaP3nH8DJJGTJlSWNdaRHg2TdCC-lyyI66CBI7A1Nw';
+
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     });
-
-    console.log('uri :>> ', uri);
 
     const body = {
       uris: [uri],

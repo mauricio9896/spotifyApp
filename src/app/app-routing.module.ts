@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'search', pathMatch: 'full' },
       { path: 'search', component: ListComponent },
-      { path: 'song/:id', component: DetailSongComponent },
+      { path: 'detail/:type/:id', component: DetailSongComponent },
     ],
   },
   {
