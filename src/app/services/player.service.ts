@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { SpotifyService } from './spotify.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { SpotifyService } from './spotify.service';
 export class PlayerService {
 
   private spotifyApi : SpotifyWebApi.SpotifyWebApiJs;
+  public idTrack$ = new BehaviorSubject<string>('63pLfjK6FvcYJYMGwtHjd6');
 
   constructor( private spotifyService : SpotifyService ) {
     this.spotifyApi = new SpotifyWebApi();
