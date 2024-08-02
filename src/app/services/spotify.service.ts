@@ -9,7 +9,6 @@ import SpotifyWebApi from 'spotify-web-api-js';
 export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
-  // private client_secret: string = '7ac4bb51761a4fd6a674f7be448d8c1f';
   private _token: string = '';
   private spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
 
@@ -43,23 +42,6 @@ export class SpotifyService {
     return `${authEndpoint}?${responseType}&client_id=${this.client_id}&scope=${scopes}&redirect_uri=${redirectUrl}`;
   }
 
-  // getToken(): Observable<any> {
-  //   const authUrl = 'https://accounts.spotify.com/api/token';
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/x-www-form-urlencoded',
-  //     Authorization: 'Basic ' + btoa(this.client_id + ':' + this.client_secret),
-  //   });
-  //   const body = new URLSearchParams();
-  //   body.set('grant_type', 'client_credentials');
-  //   return this.http.post(authUrl, body.toString(), { headers }).pipe(
-  //     map((res: any) => {
-  //       if (res) {
-  //         return res.access_token;
-  //       }
-  //     })
-  //   );
-  // }
-
   search(query: string, type: string): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + this.token,
@@ -75,17 +57,6 @@ export class SpotifyService {
     });
     return this.http.get(url, { headers });
   }
-
-  // getActivePlayer(): Observable<any> {
-  //   return this.getToken().pipe(
-  //     switchMap((token) => {
-  //       const headers = new HttpHeaders({
-  //         Authorization: `Bearer ${token}`,
-  //       });
-  //       return this.http.get(`${this.url}/me/player`, { headers });
-  //     })
-  //   );
-  // }
 
   getDataUser() {
     this.spotifyApi.setAccessToken(this.token);
