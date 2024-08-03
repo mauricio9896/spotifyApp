@@ -29,12 +29,9 @@ export class PlayerService {
 
   playSong(uri: string){
     this.spotifyApi.play({
+      device_id: "ee002aeb88fd3554c40cab1dee23ccecc8e05994",
       uris: [uri],
       position_ms: 0,
-    }).then(function(data) {
-      console.log('Reproduciendo...');
-    }, function(err) {
-      console.error(err);
     });
   }
 

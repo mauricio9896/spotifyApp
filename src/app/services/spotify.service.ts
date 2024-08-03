@@ -18,14 +18,15 @@ export class SpotifyService {
     const authEndpoint: string = 'https://accounts.spotify.com/authorize';
     const redirectUrl: string = 'http://localhost:4200/home';
     const scopes = [
-      'user-read-currently-playing',
-      'user-read-recently-played',
       'user-read-playback-state',
-      'user-top-read',
+      'user-read-currently-playing',
       'user-modify-playback-state',
+      'user-read-recently-played',
+      'user-top-read',
       'user-library-read',
       'playlist-read-private',
       'playlist-read-collaborative',
+      'streaming'
     ].join('%20');
     const responseType = `response_type=token&show_dialog=true`;
 
