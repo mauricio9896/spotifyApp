@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { SpotifyService } from './spotify.service';
 import { BehaviorSubject } from 'rxjs';
+import { Device } from '../models/devices.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +29,17 @@ export class PlayerService {
   }
 
   playSong(uri: string){
-    this.spotifyApi.play({
-      device_id: "ee002aeb88fd3554c40cab1dee23ccecc8e05994",
-      uris: [uri],
-      position_ms: 0,
+    this.getDevies().then(({ devices })=>{
+      const { id } = devices.find((device: Device) => device.name === 'Web_SDK_App');
+      this.spotifyApi.play({
+        device_id: id,
+        uris: [uri],
+      });
     });
+  }
+
+  getDevies(): Promise<any> {
+    return this.spotifyApi.getMyDevices();
   }
 
   setVolumen(volumen : number = 100 ){

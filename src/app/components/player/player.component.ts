@@ -54,32 +54,17 @@ export class PlayerComponent implements OnInit {
   connectPlayer() {
     const token = this.spotifyService.token;
     const player = new Spotify.Player({
-      name: 'Web Playback SDK Quick Start Player',
+      name: 'Web_SDK_App',
       getOAuthToken: (cb: any) => {
         cb(token);
       },
-      volume: 0.5,
+      volume: 1,
     });
 
-    player.connect();
     player.addListener('ready', ({ device_id }: any) => {
       console.log('Ready with Device ID', device_id);
     });
 
-    player.addListener('not_ready', ({ device_id }: any) => {
-      console.log('Device ID has gone offline', device_id);
-    });
-
-    player.addListener('initialization_error', ({ message }: any) => {
-      console.error(message);
-    });
-
-    player.addListener('authentication_error', ({ message }: any) => {
-      console.error(message);
-    });
-
-    player.addListener('account_error', ({ message }: any) => {
-      console.error(message);
-    });
+    player.connect();
   }
 }
