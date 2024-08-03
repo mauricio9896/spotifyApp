@@ -11,8 +11,9 @@ import { debounceTime } from 'rxjs';
   styleUrl: './list.component.css',
 })
 export class ListComponent implements OnInit {
-  public paramSearch = new FormControl('');
   public resultSearch!: ResultSearch;
+  public paramSearch = new FormControl('');
+
 
   constructor(private spotifyService: SpotifyService ) {}
 

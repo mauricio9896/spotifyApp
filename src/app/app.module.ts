@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListSongsComponent } from './components/list-songs/list-songs.component';
 import { ListArtistsComponent } from './components/list-artists/list-artists.component';
 import { ListAlbumsComponent } from './components/list-albums/list-albums.component';
-import { ListComponent } from './components/search/list.component';
+import { ListComponent } from './components/list-search/list.component';
 import { CardSongComponent } from './components/card-song/card-song.component';
 import { ConvertTimePipe } from './pipes/convert-time.pipe';
 import { CardArtistComponent } from './components/card-artist/card-artist.component';

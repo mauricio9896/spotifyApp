@@ -1,0 +1,38 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: calc(var(--unidad)/2) 20px calc(2*var(--unidad)) 0px;
+}
+
+.search {
+  flex: 0.6;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  gap: calc(2*var(--unidad));
+}
+
+.user-name{
+  color: var(--fourth-color);
+}
+
+.btns-add{
+  display: flex;
+  gap: 10px;
+  button{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--third-color);
+    color: aliceblue;
+
+    &:hover{
+      outline: 1px solid var(--third-color);
+    }
+  }
+}
