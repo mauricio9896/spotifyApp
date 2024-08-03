@@ -14,11 +14,11 @@ export class ListComponent implements OnInit {
   public resultSearch!: ResultSearch;
   public paramSearch = new FormControl('');
 
-
-  constructor(private spotifyService: SpotifyService ) {}
+  constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit(): void {
-    this.search('s');
+    this.search(this.paramRandom());
+
     this.paramSearch.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
       if (value) {
         this.search(value);
@@ -35,5 +35,11 @@ export class ListComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  paramRandom(): string {
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+    const index = Math.floor(Math.random() * letters.length);
+    return letters[index];
   }
 }
