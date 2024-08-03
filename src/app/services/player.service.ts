@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class PlayerService {
 
   private spotifyApi : SpotifyWebApi.SpotifyWebApiJs;
-  public idTrack$ = new BehaviorSubject<string>('63pLfjK6FvcYJYMGwtHjd6');
+  public idTrack$ = new BehaviorSubject<string>('');
 
   constructor( private spotifyService : SpotifyService ) {
     this.spotifyApi = new SpotifyWebApi();

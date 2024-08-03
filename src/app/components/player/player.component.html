@@ -1,27 +1,25 @@
-@if (true) {
-  <div class="content">
-    <div class="song">
-      <!-- <app-card-song [song]="track" [player]="true"></app-card-song> -->
-    </div>
-    <div class="buttons">
-      <div class="btn-play">
-        <button class="btn">
-          <i class="fa-solid fa-backward-step"></i>
-        </button>
-        <button (click)="playSong(track)" >
-          <i class="fa-solid fa-play"></i>
-        </button>
-        <button class="btn">
-          <i class="fa-solid fa-forward-step"></i>
-        </button>
-      </div>
-    </div>
+@if (track) {
+<div class="content">
+  <div class="song">
+    <app-card-song [song]="track" [player]="true"></app-card-song>
+  </div>
+  <div class="buttons">
+    <button class="btn">
+      <i class="fa-solid fa-backward-step"></i>
+    </button>
+    <button class="btn-play" (click)="playSong(track)">
+      <i class="fa-solid fa-play"></i>
+    </button>
+    <button class="btn">
+      <i class="fa-solid fa-forward-step"></i>
+    </button>
+  </div>
 
-    <div class="volumen">
-      <div class="slider">
-        <i class="fa-solid fa-volume-high"></i>
-        <input type="range" id="slider" min="0" max="100" step="1" [formControl]="volumen">
-      </div>
+  <div class="volumen">
+    <div class="slider">
+      <i class="fa-solid fa-volume-high"></i>
+      <input type="range" id="slider" min="0" max="100" step="1" [formControl]="volumen">
     </div>
   </div>
+</div>
 }
