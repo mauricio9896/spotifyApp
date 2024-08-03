@@ -4,6 +4,22 @@
   flex-direction: column;
   gap: var(--unidad);
   padding: 10px;
+  position: relative;
+
+  &:hover {
+    .btn-player {
+      transition: opacity 0.5s ease-in-out;
+    }
+  }
+}
+
+.btn-player {
+  position: absolute;
+  bottom: -15px;
+  left: -5px;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
 }
 
 .banner-song {
@@ -40,7 +56,7 @@
   flex-direction: column;
 }
 
-.song{
+.song {
   font-size: 12px;
   font-weight: bold;
   text-transform: capitalize;
@@ -52,7 +68,7 @@
   margin: 8px 0px;
 }
 
-.player{
+.player {
   width: 100%;
   margin-top: 20px;
 }

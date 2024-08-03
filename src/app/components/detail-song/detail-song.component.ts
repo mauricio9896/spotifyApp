@@ -1,9 +1,7 @@
+import { PlayerService } from './../../services/player.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from '../../services/spotify.service';
-import { TrackByID } from '../../models/trackById.model';
-import { ArtistByID } from '../../models/artistById.model';
-import { AlbumByID } from '../../models/albumById.model';
 
 @Component({
   selector: 'app-detail-song',
@@ -16,7 +14,8 @@ export class DetailSongComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private spotifyService: SpotifyService
+    private spotifyService: SpotifyService,
+    private playerService: PlayerService
   ) {}
 
   ngOnInit(): void {
@@ -31,5 +30,9 @@ export class DetailSongComponent implements OnInit {
     this.spotifyService.detailById(type, id).subscribe((res) => {
       this.detail = res;
     });
+  }
+
+  playSong( track : any ){
+    this.playerService.idTrack$.next(track.id);
   }
 }

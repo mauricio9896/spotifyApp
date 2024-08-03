@@ -7,13 +7,25 @@
 .card:hover{
   background-color: var(--third-color);
   cursor: pointer;
+  .btn-player{
+    opacity: 0.75;
+    transition: opacity 0.5s ease-in-out;
+  }
 }
 
 .image{
+  position: relative;
   img{
     height: 130px;
     width: 130px;
   }
+}
+
+.btn-player {
+  position: absolute;
+  top: 45px;
+  right: 45px;
+  opacity: 0;
 }
 
 .name{

@@ -24,7 +24,6 @@ export class PlayerComponent implements OnInit {
       .subscribe((value) => this.playerService.setVolumen(value));
 
     this.playerService.idTrack$.subscribe((id) => {
-      console.log('id :>> ', id);
       id && this.detailById('track', id);
     });
   }
@@ -35,8 +34,10 @@ export class PlayerComponent implements OnInit {
 
   detailById(type: string, id: string) {
     this.spotifyService.detailById(type, id).subscribe((res) => {
-      console.log('res :>> ', res);
-      this.track = res;
+      if(res){
+        this.track = res;
+        this.playSong(res);
+      }
     });
   }
 }

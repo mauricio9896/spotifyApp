@@ -20,5 +20,11 @@
       </div>
     </div>
   </div>
+
+  @if (type === 'track') {
+    <button class="btn-player" (click)="playSong( detail )" >
+      <i class="fa-solid fa-play"></i>
+    </button>
+  }
 </div>
 }

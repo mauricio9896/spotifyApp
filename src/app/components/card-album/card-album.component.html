@@ -1,6 +1,9 @@
 <div class="card" [routerLink]='"/home/detail/" + album.type + "/" + album.id'>
   <div class="image">
     <img [src]="album.images[0].url">
+    <button class="btn-player">
+      <i class="fa-solid fa-play"></i>
+    </button>
   </div>
   <div class="name">
     <span>{{ album.name }}</span>
@@ -8,4 +11,7 @@
   <div class="info">
     <span>{{ album.release_date | date: 'yyyy'}}, {{ album.artists[0].name }}</span>
   </div>
+
+
+
 </div>
