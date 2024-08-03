@@ -1,7 +1,11 @@
-@if (track) {
+@if (true) {
 <div class="content">
   <div class="song">
-    <app-card-song [song]="track" [player]="true"></app-card-song>
+    @if (track ) {
+      <app-card-song [song]="track" [player]="true"></app-card-song>
+    }@else {
+      <div class="img-empty"></div>
+    }
   </div>
   <div class="buttons">
     <button class="btn">

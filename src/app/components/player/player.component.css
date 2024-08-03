@@ -12,6 +12,7 @@
 .song{
   width: 30%;
   color: whitesmoke;
+  padding: 5px;
 }
 
 .buttons{
@@ -96,4 +97,12 @@ input[type='range']::-webkit-slider-thumb {
   box-shadow: -80px 0 0 80px var(--fourth-color);
   background-color: var(--fourth-color);
   z-index: 1;
+}
+
+.img-empty{
+  width: 40px;
+  height: 40px;
+  background-color: var(--third-color);
+  border-radius: var(--unidad);
+  opacity: 0.8;
 }
