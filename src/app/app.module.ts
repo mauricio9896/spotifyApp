@@ -20,6 +20,7 @@ import { CardAlbumComponent } from './components/card-album/card-album.component
 import { DetailSongComponent } from './components/detail-song/detail-song.component';
 import { PlayerComponent } from './components/player/player.component';
 import { DetailPipe } from './pipes/detail.pipe';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DetailPipe } from './pipes/detail.pipe';
     CardAlbumComponent,
     DetailSongComponent,
     PlayerComponent,
-    DetailPipe
+    DetailPipe,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
