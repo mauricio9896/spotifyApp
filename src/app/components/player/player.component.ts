@@ -24,7 +24,7 @@ export class PlayerComponent implements OnInit {
     this.createWebPlayerSDK();
 
     this.volumen.valueChanges
-      .pipe(debounceTime(50))
+      .pipe(debounceTime(30))
       .subscribe((value) => this.playerService.setVolumen(value));
 
     this.playerService.idTrack$.subscribe((id) => {
