@@ -1,17 +1,19 @@
-<div class="card" [routerLink]='"/home/detail/" + artist.type + "/" + artist.id'>
-  <div class="image">
-    <img [src]="artist.images[0].url">
-  </div>
-  <div class="name">
-    <span>
-      {{ artist.name }}
-    </span>
-  </div>
-  <div class="info">
-    <span>Artista</span>
-  </div>
+@if(artist){
+  <div class="card" [routerLink]='"/home/detail/" + artist.type + "/" + artist.id'>
+    <div class="image">
+      <img [src]="artist.images[0]?.url">
+    </div>
+    <div class="name">
+      <span>
+        {{ artist.name }}
+      </span>
+    </div>
+    <div class="info">
+      <span>Artista</span>
+    </div>
 
-  <button class="btn-player">
-    <i class="fa-solid fa-play"></i>
-  </button>
-</div>
+    <button class="btn-player">
+      <i class="fa-solid fa-play"></i>
+    </button>
+  </div>
+}
