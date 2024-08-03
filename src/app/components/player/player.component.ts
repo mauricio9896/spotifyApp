@@ -13,6 +13,7 @@ declare var Spotify: any;
 export class PlayerComponent implements OnInit {
   public track!: any; // definir el tipo
   public volumen: FormControl = new FormControl(100);
+  public playingSong : boolean = false;
 
   constructor(
     private playerService: PlayerService,
@@ -21,8 +22,9 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.createWebPlayerSDK();
+
     this.volumen.valueChanges
-      .pipe(debounceTime(20))
+      .pipe(debounceTime(50))
       .subscribe((value) => this.playerService.setVolumen(value));
 
     this.playerService.idTrack$.subscribe((id) => {
@@ -31,7 +33,13 @@ export class PlayerComponent implements OnInit {
   }
 
   playSong(track: any) {
+    this.playingSong = true;
     this.playerService.playSong(track.uri);
+  }
+
+  pauseSong(track : any) {
+    this.playingSong = false;
+    this.playerService.pauseSong();
   }
 
   detailById(type: string, id: string) {

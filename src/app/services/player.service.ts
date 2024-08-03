@@ -38,6 +38,10 @@ export class PlayerService {
     });
   }
 
+  pauseSong(){
+    this.spotifyApi.pause();
+  }
+
   getDevies(): Promise<any> {
     return this.spotifyApi.getMyDevices();
   }
