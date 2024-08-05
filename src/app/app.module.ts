@@ -5,22 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './search/components/home/home.component';
+import { NavbarComponent } from './search/components/navbar/navbar.component';
+import { ListComponent } from './search/components/list-search/list.component';
+import { ListSongsComponent } from './search/components/list-songs/list-songs.component';
+import { ListArtistsComponent } from './search/components/list-artists/list-artists.component';
+import { ListAlbumsComponent } from './search/components/list-albums/list-albums.component';
+import { CardSongComponent } from './search/components/card-song/card-song.component';
+import { ConvertTimePipe } from './search/pipes/convert-time.pipe';
+import { CardArtistComponent } from './search/components/card-artist/card-artist.component';
+import { CardAlbumComponent } from './search/components/card-album/card-album.component';
+import { DetailSongComponent } from './search/components/detail-song/detail-song.component';
+import { PlayerComponent } from './search/components/player/player.component';
+import { DetailPipe } from './search/pipes/detail.pipe';
+import { HeaderComponent } from './search/components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ListSongsComponent } from './components/list-songs/list-songs.component';
-import { ListArtistsComponent } from './components/list-artists/list-artists.component';
-import { ListAlbumsComponent } from './components/list-albums/list-albums.component';
-import { ListComponent } from './components/list-search/list.component';
-import { CardSongComponent } from './components/card-song/card-song.component';
-import { ConvertTimePipe } from './pipes/convert-time.pipe';
-import { CardArtistComponent } from './components/card-artist/card-artist.component';
-import { CardAlbumComponent } from './components/card-album/card-album.component';
-import { DetailSongComponent } from './components/detail-song/detail-song.component';
-import { PlayerComponent } from './components/player/player.component';
-import { DetailPipe } from './pipes/detail.pipe';
-import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailSongComponent } from './components/detail-song/detail-song.component';
-import { ListComponent } from './components/list-search/list.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './search/components/home/home.component';
+import { ListComponent } from './search/components/list-search/list.component';
+import { DetailSongComponent } from './search/components/detail-song/detail-song.component';
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./pages/login/login.module').then((x) => x.LoginModule),
+      import('./auth/auth.module').then((x) => x.LoginModule),
   },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];

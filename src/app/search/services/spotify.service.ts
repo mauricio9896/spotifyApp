@@ -9,6 +9,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
+
   public token: string = '';
 
   constructor(private http: HttpClient) {

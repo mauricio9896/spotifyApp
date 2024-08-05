@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 import { PlayerService } from '../../services/player.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
-export class NavbarComponent implements OnInit  {
+export class HomeComponent {
 
   constructor(private spotifyService: SpotifyService, private playerService : PlayerService ) {}
-
 
   ngOnInit(): void {
     this.verifyToken();
@@ -28,5 +27,4 @@ export class NavbarComponent implements OnInit  {
     const params = window.location.hash.substring(1).split('&');
     return params[0].split('=')[1];
   }
-
 }
