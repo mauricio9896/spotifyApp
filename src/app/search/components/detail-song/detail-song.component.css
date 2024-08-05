@@ -1,11 +1,10 @@
 .content {
   max-height: calc(100vh - 2 * var(--unidad) - 180px);
-  overflow-y: auto;
+  overflow-y : auto;
   display: flex;
   flex-direction: column;
   gap: var(--unidad);
   padding: 10px;
-  position: relative;
 
   &:hover {
     .btn-player {
@@ -16,8 +15,8 @@
 
 .btn-player {
   position: absolute;
-  bottom: -15px;
-  left: -5px;
+  top: 270px;
+  right: 30px;
   width: 60px;
   height: 60px;
   font-size: 24px;

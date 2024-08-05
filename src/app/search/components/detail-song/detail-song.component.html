@@ -4,7 +4,7 @@
     <div class="content-song">
       <div class="image">
         @if ( type === 'track') {
-        <img [src]="detail.album.images[0].url">
+        <img *ngIf="detail.album" [src]="detail.album.images[0].url">
         }@else{
         <img [src]="detail.images[0].url">
         }
@@ -21,14 +21,14 @@
   </div>
 
   @switch ( type ) {
-    @case ( 'track' ) {
-      <button class="btn-player" (click)="playSong( detail )" >
-        <i class="fa-solid fa-play"></i>
-      </button>
-    }
-    @case ('album') {
-      <app-list-songs [tracks]="detail.tracks" ></app-list-songs>
-    }
+  @case ( 'track' ) {
+  <button class="btn-player" (click)="playSong( detail )">
+    <i class="fa-solid fa-play"></i>
+  </button>
+  }
+  @case ('album') {
+  <app-list-songs [tracks]="detail.tracks"></app-list-songs>
+  }
   }
 </div>
 }
