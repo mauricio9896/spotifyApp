@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
-import { SpotifyService } from './spotify.service';
+import { SpotifyService } from '../../search/services/spotify.service';
 import { BehaviorSubject } from 'rxjs';
-import { Device } from '../models/devices.model';
+import { Device } from '../../search/models/devices.model';
 
 @Injectable({
   providedIn: 'root',

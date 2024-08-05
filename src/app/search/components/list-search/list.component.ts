@@ -1,4 +1,4 @@
-import { PlayerService } from '../../services/player.service';
+import { PlayerService } from '../../../player/services/player.service';
 import { FormControl } from '@angular/forms';
 import { ResultSearch } from '../../models/resultSearch.model';
 import { SpotifyService } from '../../services/spotify.service';

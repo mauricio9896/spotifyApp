@@ -1,4 +1,4 @@
-import { PlayerService } from './../../services/player.service';
+import { PlayerService } from '../../../player/services/player.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from '../../services/spotify.service';

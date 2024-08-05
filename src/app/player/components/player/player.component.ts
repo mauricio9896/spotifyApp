@@ -1,8 +1,8 @@
-import { SpotifyService } from './../../services/spotify.service';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { PlayerService } from '../../services/player.service';
+import { SpotifyService } from '../../../search/services/spotify.service';
 declare var Spotify: any;
 
 @Component({
