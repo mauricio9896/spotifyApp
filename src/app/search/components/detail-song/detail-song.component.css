@@ -1,5 +1,6 @@
 .content {
-  max-height: calc(100vh - 2 * var(--unidad) - 40px);
+  max-height: calc(100vh - 2 * var(--unidad) - 180px);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--unidad);
