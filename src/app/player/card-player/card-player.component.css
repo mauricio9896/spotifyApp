@@ -1,0 +1,59 @@
+.content {
+  display: flex;
+  gap: calc( 4px + var(--unidad) );
+  padding: var(--unidad);
+  align-items: center;
+  border-radius: var(--unidad);
+  width: 80%;
+  cursor: default;
+}
+
+.image{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    height: 40px;
+    width: 40px;
+    border-radius: var(--unidad);
+  }
+}
+
+.info {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+}
+
+.info .name span {
+  font-size: 14px;
+}
+
+.info .artists span {
+  color: var(--fourth-color);
+  font-size: 12px;
+}
+
+.save-song {
+  flex: 0.1;
+}
+
+.save-song button {
+  font-size: 16px;
+  color: var(--fourth-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+.duration{
+  flex: 0.1;
+}
+
+.duration span {
+  color: var(--fourth-color);
+  font-size: 12px;
+}

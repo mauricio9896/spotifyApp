@@ -9,5 +9,4 @@ import { TracksItem } from '../../models/resultSearch.model';
 export class CardSongComponent {
 
   @Input() song !: TracksItem;
-  @Input() player : boolean = false;
 }

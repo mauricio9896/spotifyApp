@@ -1,0 +1,16 @@
+@if ( song ) {
+  <div class="content">
+    <div class="image">
+      <img [src]="song.album.images[0].url">
+    </div>
+
+    <div class="info">
+      <div class="name">
+        <span>{{song.name}}</span>
+      </div>
+      <div class="artists">
+        <span>{{song.artists[0].name}} </span>
+      </div>
+    </div>
+  </div>
+}
