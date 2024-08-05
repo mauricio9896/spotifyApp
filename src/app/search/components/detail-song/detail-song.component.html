@@ -27,7 +27,10 @@
   </button>
   }
   @case ('album') {
-  <app-list-songs [tracks]="detail.tracks"></app-list-songs>
+  <app-list-songs [tracks]="detail.tracks.items"></app-list-songs>
+  }
+  @case ('artist') {
+  <app-list-songs [tracks]="topTracksArtist"></app-list-songs>
   }
   }
 </div>

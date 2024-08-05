@@ -30,4 +30,12 @@ export class SpotifyService {
     });
     return this.http.get(url, { headers });
   }
+
+  getTopTracksArtist(id: string ): Observable<any> {
+    const url = `${this.url}/artists/${id}/top-tracks`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    });
+    return this.http.get<any>(url, { headers });
+  }
 }

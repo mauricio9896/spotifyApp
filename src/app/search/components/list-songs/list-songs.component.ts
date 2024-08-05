@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Tracks } from '../../models/resultSearch.model';
+import { Tracks, TracksItem } from '../../models/resultSearch.model';
 
 @Component({
   selector: 'app-list-songs',
@@ -8,5 +8,5 @@ import { Tracks } from '../../models/resultSearch.model';
 })
 export class ListSongsComponent {
 
-  @Input() tracks !: Tracks;
+  @Input() tracks !: TracksItem[];
 }
