@@ -7,8 +7,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PlayerModule } from '../player/player.module';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,
