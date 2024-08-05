@@ -1,3 +1,4 @@
+import { AuthService } from './../../../auth/services/auth.service';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
@@ -17,7 +18,8 @@ export class PlayerComponent implements OnInit {
 
   constructor(
     private playerService: PlayerService,
-    private spotifyService: SpotifyService
+    private authService : AuthService,
+    private spotifyService: SpotifyService,
   ) {}
 
   ngOnInit(): void {
@@ -60,7 +62,7 @@ export class PlayerComponent implements OnInit {
   }
 
   connectPlayer() {
-    const token = this.spotifyService.token;
+    const token = this.authService.verifyToken();
     const player = new Spotify.Player({
       name: 'Web_SDK_App',
       getOAuthToken: (cb: any) => {

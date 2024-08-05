@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SpotifyService } from '../../search/services/spotify.service';
@@ -10,9 +11,9 @@ import { SpotifyService } from '../../search/services/spotify.service';
 })
 export class LoginComponent {
 
-  constructor(private spotifyService: SpotifyService, private router: Router) {}
+  constructor(private authService: AuthService) {}
 
   openLogin() {
-    window.location.href = this.spotifyService.getAuthorizationSpotify();
+    window.location.href = this.authService.getAuthorizationSpotify();
   }
 }

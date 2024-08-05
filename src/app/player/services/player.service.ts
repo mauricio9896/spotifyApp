@@ -2,7 +2,7 @@ import { AuthService } from './../../auth/services/auth.service';
 import { Injectable } from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { SpotifyService } from '../../search/services/spotify.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Device } from '../../search/models/devices.model';
 
 @Injectable({
@@ -16,26 +16,7 @@ export class PlayerService {
   constructor(private authService: AuthService) {
     this.token = this.authService.verifyToken();
     this.spotifyApi = new SpotifyWebApi();
-  }
-
-  async getDataUser() {
     this.spotifyApi.setAccessToken(this.token);
-    const user = await this.spotifyApi.getMe();
-    console.log('user :>> ', user);
-  }
-
-  async playSong(uri: string){
-    const position_ms = await this.getStateSong(uri);
-    const device_id = await this.getDevies();
-    this.spotifyApi.play({
-      device_id,
-      uris: [uri],
-      position_ms
-    });
-  }
-
-  pauseSong() {
-    this.spotifyApi.pause();
   }
 
   private async getDevies(): Promise<string>{
@@ -51,6 +32,25 @@ export class PlayerService {
     }
     return 0;
   }
+
+  getDataUser(): Promise<any>{
+    return this.spotifyApi.getMe();
+  }
+
+  async playSong(uri: string){
+    const position_ms = await this.getStateSong(uri);
+    const device_id = await this.getDevies();
+    this.spotifyApi.play({
+      device_id,
+      uris: [uri],
+      position_ms
+    });
+  }
+
+  pauseSong(){
+    this.spotifyApi.pause();
+  }
+
 
   setVolumen(volumen: number = 100) {
     this.spotifyApi.setVolume(volumen).then(
