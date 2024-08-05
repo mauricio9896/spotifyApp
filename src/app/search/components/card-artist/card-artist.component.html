@@ -1,7 +1,9 @@
 @if(artist){
   <div class="card" [routerLink]='"/home/search/" + artist.type + "/" + artist.id'>
     <div class="image">
-      <img [src]="artist.images[0]?.url">
+      @if (artist.images[0]) {
+        <img [src]="artist.images[0].url">
+      }
     </div>
     <div class="name">
       <span>

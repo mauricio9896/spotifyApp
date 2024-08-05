@@ -9,4 +9,5 @@ import { TracksItem } from '../../models/resultSearch.model';
 export class CardSongComponent {
 
   @Input() song !: TracksItem;
+  @Input() index !: number;
 }

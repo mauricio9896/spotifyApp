@@ -29,6 +29,7 @@ export class DetailSongComponent implements OnInit {
   detailById(type: string, id: string) {
     this.spotifyService.detailById(type, id).subscribe((res) => {
       this.detail = res;
+      console.log('this.detail :>> ', this.detail);
     });
   }
 

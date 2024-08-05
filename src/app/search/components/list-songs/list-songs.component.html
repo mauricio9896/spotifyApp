@@ -2,7 +2,7 @@
   <h3>Canciones</h3>
   <ul>
     @for (song of tracks.items; track $index) {
-      <li> <app-card-song [song]="song" ></app-card-song></li>
+      <li> <app-card-song [song]="song" [index]="$index" ></app-card-song></li>
     }
   </ul>
 </div>

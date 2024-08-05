@@ -1,6 +1,5 @@
 @if (detail) {
 <div class="content">
-
   <div class="banner-song">
     <div class="content-song">
       <div class="image">
@@ -21,10 +20,17 @@
     </div>
   </div>
 
-  @if (type === 'track') {
-    <button class="btn-player" (click)="playSong( detail )" >
-      <i class="fa-solid fa-play"></i>
-    </button>
+  @switch ( type ) {
+    @case ( 'track' ) {
+      <button class="btn-player" (click)="playSong( detail )" >
+        <i class="fa-solid fa-play"></i>
+      </button>
+    }
+    @case ('album') {
+      <app-list-songs [tracks]="detail.tracks" ></app-list-songs>
+    }
   }
+
+
 </div>
 }
