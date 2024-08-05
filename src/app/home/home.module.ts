@@ -5,17 +5,20 @@ import { HomeRoutes } from './home-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PlayerModule } from '../player/player.module';
+
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(HomeRoutes)
-  ]
+    RouterModule.forChild(HomeRoutes),
+    PlayerModule,
+  ],
 })
 export class HomeModule { }

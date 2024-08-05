@@ -34,6 +34,9 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
     RouterModule.forChild(SearchRoutes)
+  ],
+  exports:[
+    CardSongComponent
   ]
 })
 export class SearchModule { }
