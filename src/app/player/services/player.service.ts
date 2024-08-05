@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/services/auth.service';
 import { Injectable } from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { SpotifyService } from '../../search/services/spotify.service';
@@ -9,14 +10,16 @@ import { Device } from '../../search/models/devices.model';
 })
 export class PlayerService {
   private spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
+  private token !: string | null;
   public idTrack$ = new BehaviorSubject<string>('');
 
-  constructor(private spotifyService: SpotifyService) {
+  constructor(private authService: AuthService) {
+    this.token = this.authService.verifyToken();
     this.spotifyApi = new SpotifyWebApi();
   }
 
   async getDataUser() {
-    this.spotifyApi.setAccessToken(this.spotifyService.token);
+    this.spotifyApi.setAccessToken(this.token);
     const user = await this.spotifyApi.getMe();
     console.log('user :>> ', user);
   }
@@ -30,7 +33,6 @@ export class PlayerService {
       position_ms
     });
   }
-
 
   pauseSong() {
     this.spotifyApi.pause();

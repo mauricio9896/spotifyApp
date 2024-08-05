@@ -1,25 +1,22 @@
+import { AuthService } from './../../../auth/services/auth.service';
 import { Component } from '@angular/core';
-import { PlayerService } from '../../../player/services/player.service';
-import { SpotifyService } from '../../../search/services/spotify.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
-  constructor(private spotifyService: SpotifyService, private playerService : PlayerService ) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.verifyToken();
   }
 
-  verifyToken(){
-    if(this.spotifyService.token !== '') return
+  verifyToken() {
+    if (this.authService.verifyToken()) return;
     const token = this.getTokenUrl();
-    this.spotifyService.token = token;
-    this.playerService.getDataUser();
+    localStorage.setItem('token', token);
   }
 
   getTokenUrl() {
