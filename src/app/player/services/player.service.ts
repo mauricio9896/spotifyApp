@@ -1,9 +1,7 @@
 import { AuthService } from './../../auth/services/auth.service';
 import { Injectable } from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
-import { SpotifyService } from '../../search/services/spotify.service';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Device } from '../../search/models/devices.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -50,7 +48,6 @@ export class PlayerService {
   pauseSong(){
     this.spotifyApi.pause();
   }
-
 
   setVolumen(volumen: number = 100) {
     this.spotifyApi.setVolume(volumen).then(

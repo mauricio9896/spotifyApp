@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AuthService } from '../../auth/services/auth.service';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { AuthService } from '../../auth/services/auth.service';
 export class SpotifyService {
   private url = 'https://api.spotify.com/v1';
   private token: string | null;
+  public refresh$ = new Subject<boolean>();
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.token = this.authService.verifyToken();
@@ -39,10 +40,20 @@ export class SpotifyService {
   }
 
   getUserSavedTracks(): Observable<any> {
-    const url = `${this.url}/me/tracks?limit=5&offset=0`;
+    const url = `${this.url}/me/tracks?limit=10&offset=0`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`,
     });
     return this.http.get<any>(url, { headers });
+  }
+
+  savedTrackUser(id: string ): Observable<any> {
+    const url = `${this.url}/me/tracks?ids=${id}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`,
+      'Content-Type': 'application/json',
+    });
+    const body = { ids: [id]};
+    return this.http.put<any>(`${url}`, body, { headers });
   }
 }

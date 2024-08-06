@@ -1,11 +1,11 @@
 @if ( song ) {
-<div class="content" [ngClass]="{'fullContent': savedTracks}" >
+<div class="content" [ngClass]="{'fullContent': savedTracks}">
   <div class="image" [routerLink]='"/home/search/" + song.type + "/" + song.id'>
     <i class="fa-solid fa-play"></i>
     @if(song.album){
     <img [src]="song.album.images[0].url">
     }@else {
-      <span>{{ index + 1}}</span>
+    <span>{{ index + 1}}</span>
     }
   </div>
 
@@ -19,15 +19,19 @@
   </div>
 
   @if ( !savedTracks ) {
-    <div class="save-song">
-      <button>
-        <i class="fa-solid fa-circle-plus"></i>
-      </button>
-    </div>
+  <div class="save-song">
+    <button (click)="savedTrackUser(song)" matTooltip="Guardar" >
+      @if (loading) {
+      <i class="fas fa-spinner fa-spin"></i>
+      }@else {
+      <i class="fa-solid fa-circle-plus"></i>
+      }
+    </button>
+  </div>
 
-    <div class="duration">
-      <span>{{ song.duration_ms | convertTime}}</span>
-    </div>
+  <div class="duration">
+    <span>{{ song.duration_ms | convertTime}}</span>
+  </div>
   }
 </div>
 }

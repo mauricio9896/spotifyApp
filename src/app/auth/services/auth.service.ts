@@ -20,6 +20,7 @@ export class AuthService {
       'user-read-recently-played',
       'user-top-read',
       'user-library-read',
+      'user-library-modify',
       'playlist-read-private',
       'playlist-read-collaborative',
       'streaming'
