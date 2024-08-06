@@ -13,4 +13,4 @@ import { AuthRoutes } from './auth-routing.module';
     RouterModule.forChild(AuthRoutes)
   ]
 })
-export class LoginModule { }
+export class AuthModule { }
