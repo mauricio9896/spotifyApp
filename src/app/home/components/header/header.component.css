@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  padding: calc(var(--unidad)/2) 20px calc(2*var(--unidad)) 0px;
+  padding: calc(var(--unidad)) 20px calc(2*var(--unidad)) 0px;
 }
 
 .search {

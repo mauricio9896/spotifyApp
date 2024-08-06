@@ -8,5 +8,6 @@ import { Tracks, TracksItem } from '../../models/resultSearch.model';
 })
 export class ListSongsComponent {
 
-  @Input() tracks !: TracksItem[];
+  @Input() tracks !: any[];
+  @Input() savedTracks : boolean = false;
 }

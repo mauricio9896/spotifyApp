@@ -7,11 +7,10 @@ import { AuthService } from '../../auth/services/auth.service';
   providedIn: 'root',
 })
 export class SpotifyService {
-
   private url = 'https://api.spotify.com/v1';
-  private token : string | null;
+  private token: string | null;
 
-  constructor(private http: HttpClient, private authService : AuthService) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.token = this.authService.verifyToken();
   }
 
@@ -31,10 +30,18 @@ export class SpotifyService {
     return this.http.get(url, { headers });
   }
 
-  getTopTracksArtist(id: string ): Observable<any> {
+  getTopTracksArtist(id: string): Observable<any> {
     const url = `${this.url}/artists/${id}/top-tracks`;
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`
+      Authorization: `Bearer ${this.token}`,
+    });
+    return this.http.get<any>(url, { headers });
+  }
+
+  getUserSavedTracks(): Observable<any> {
+    const url = `${this.url}/me/tracks?limit=5&offset=0`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`,
     });
     return this.http.get<any>(url, { headers });
   }

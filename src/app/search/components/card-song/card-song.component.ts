@@ -10,4 +10,5 @@ export class CardSongComponent {
 
   @Input() song !: TracksItem;
   @Input() index !: number;
+  @Input() savedTracks : boolean = false;
 }

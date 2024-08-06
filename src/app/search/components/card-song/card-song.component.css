@@ -10,6 +10,15 @@
     background-color: var(--third-color);
   }
 }
+.fullContent{
+  width: 90%;
+  .info{
+    flex: 1;
+  }
+  .image i {
+    color: whitesmoke;
+  }
+}
 
 .image{
   position: relative;
@@ -49,6 +58,8 @@
   flex: 0.8;
   display: flex;
   flex-direction: column;
+  height: 42px;
+  overflow: hidden;
 }
 
 .info .name span {

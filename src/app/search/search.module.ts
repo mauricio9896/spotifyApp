@@ -25,7 +25,6 @@ import { SharedModule } from '../shared/shared.module';
     CardSongComponent,
     DetailSongComponent,
 
-
     //pipes
     ConvertTimePipe,
     DetailPipe
@@ -36,7 +35,18 @@ import { SharedModule } from '../shared/shared.module';
     RouterModule.forChild(SearchRoutes)
   ],
   exports:[
-    CardSongComponent
+    ListComponent,
+    ListAlbumsComponent,
+    ListArtistsComponent,
+    ListSongsComponent,
+    CardAlbumComponent,
+    CardArtistComponent,
+    CardSongComponent,
+    DetailSongComponent,
+
+    //pipes
+    ConvertTimePipe,
+    DetailPipe
   ]
 })
 export class SearchModule { }

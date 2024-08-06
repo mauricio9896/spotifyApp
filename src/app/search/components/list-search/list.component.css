@@ -15,7 +15,7 @@
 
 .header{
   position: absolute;
-  top: calc(var(--unidad) + 2px);
+  top: calc(var(--unidad) + 6px);
   left: 70px;
   width: 100%;
 }

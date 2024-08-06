@@ -14,7 +14,7 @@
 }
 
 .content-left{
-  width: 300px;
+  width: 370px;
   display: flex;
   flex-direction: column;
   gap: var(--unidad);
