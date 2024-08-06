@@ -15,9 +15,9 @@
 
 .header{
   position: absolute;
-  top: calc(var(--unidad) + 6px);
+  top: calc(var(--unidad) + 10px);
   left: 70px;
-  width: 100%;
+  width: 40%;
 }
 
 
@@ -30,13 +30,13 @@
 }
 
 .search input[type="text"] {
-  width: 30%;
+  width: 100%;
   padding: 8px 40px 8px 30px;
   border: 1px solid var(--second-color);
   border-radius: 20px;
   background-color: var(--third-color);
   color: whitesmoke;
-  height: 30px;
+  height: 25px;
 }
 
 .search input:focus {
