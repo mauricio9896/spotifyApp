@@ -20,7 +20,7 @@ import { SearchModule } from "../search/search.module";
     CommonModule,
     RouterModule.forChild(HomeRoutes),
     PlayerModule,
-    SearchModule
+    // SearchModule
 ],
 })
 export class HomeModule { }

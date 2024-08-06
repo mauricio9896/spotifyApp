@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class AuthService {
 
   getAuthorizationSpotify(): string {
     const authEndpoint: string = 'https://accounts.spotify.com/authorize';
-    const redirectUrl: string = 'http://localhost:4200/home';
+    const redirectUrl: string = 'http://localhost:4200/login';
     const scopes = [
       'user-read-playback-state',
       'user-read-currently-playing',
