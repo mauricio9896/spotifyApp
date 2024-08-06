@@ -11,6 +11,7 @@ export const HomeRoutes: Routes = [
         loadChildren: () =>
           import('../search/search.module').then((x) => x.SearchModule),
       },
+      { path: '', redirectTo: 'search', pathMatch: 'full' },
     ],
   },
 ];
