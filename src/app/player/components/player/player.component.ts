@@ -44,6 +44,11 @@ export class PlayerComponent implements OnInit {
     this.playerService.pauseSong();
   }
 
+  nextTrack(track : any){
+    console.log('track :>> ', track);
+    this.playerService.nextTrack(track.album.id);
+  }
+
   detailById(type: string, id: string) {
     this.spotifyService.detailById(type, id).subscribe((res) => {
       if (res) {

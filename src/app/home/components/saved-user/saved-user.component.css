@@ -8,3 +8,8 @@
     margin-right: 15px;
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 4px;
+}

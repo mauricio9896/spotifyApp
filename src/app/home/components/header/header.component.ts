@@ -1,6 +1,7 @@
 import { PlayerService } from './../../../player/services/player.service';
 import { AuthService } from './../../../auth/services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   public  user: any;
 
-  constructor( private playerService : PlayerService ) { }
+  constructor( private playerService : PlayerService, private route : Router ) { }
 
   ngOnInit(): void {
     this.playerService.getDataUser().then( (data) => {
@@ -23,5 +24,10 @@ export class HeaderComponent implements OnInit {
 
   navigationBack(){
     window.history.back();
+  }
+
+  logout(){
+    localStorage.clear();
+    this.route.navigate(['/']);
   }
 }

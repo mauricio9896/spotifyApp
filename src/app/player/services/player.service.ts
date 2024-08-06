@@ -60,4 +60,10 @@ export class PlayerService {
       }
     );
   }
+
+  async nextTrack(id : string ){
+    const tracks = await this.spotifyApi.getTracks([id]);
+    console.log('tracks :>> ', tracks);
+    // this.spotifyApi.skipToNext();
+  }
 }
