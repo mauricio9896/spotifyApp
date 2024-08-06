@@ -1,7 +1,7 @@
-import { PlayerService } from './../../../player/services/player.service';
 import { SpotifyService } from './../../services/spotify.service';
 import { Component, Input } from '@angular/core';
 import { TracksItem } from '../../models/resultSearch.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-card-song',
@@ -22,7 +22,13 @@ export class CardSongComponent {
       () => {
         this.spotifyService.refresh$.next(true);
         this.loading = false;
-        alert('Guardado');
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Canción guardada",
+          showConfirmButton: false,
+          timer: 1500
+        });
       },
       (error) => {
         this.loading = false;
