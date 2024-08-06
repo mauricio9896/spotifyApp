@@ -64,11 +64,15 @@
 
 .info .name span {
   font-size: 14px;
+  height: 5px;
+  overflow: hidden;
 }
 
 .info .artists span {
   color: var(--fourth-color);
   font-size: 12px;
+  height: 5px;
+  overflow: hidden;
 }
 
 .save-song {

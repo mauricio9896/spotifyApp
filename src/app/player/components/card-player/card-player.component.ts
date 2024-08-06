@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TracksItem } from '../../search/models/resultSearch.model';
+import { TracksItem } from '../../../search/models/resultSearch.model';
 
 @Component({
   selector: 'app-card-player',

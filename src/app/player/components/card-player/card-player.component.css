@@ -25,15 +25,20 @@
   flex: 0.8;
   display: flex;
   flex-direction: column;
+  height: 38px;
 }
 
-.info .name span {
+.info .name{
   font-size: 14px;
+  height: 20px;
+  overflow: hidden;
 }
 
-.info .artists span {
+.info .artists {
   color: var(--fourth-color);
   font-size: 12px;
+  height: 20px;
+  overflow: hidden;
 }
 
 .save-song {
