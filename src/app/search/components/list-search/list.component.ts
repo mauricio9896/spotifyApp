@@ -2,7 +2,7 @@ import { PlayerService } from '../../../player/services/player.service';
 import { FormControl } from '@angular/forms';
 import { ResultSearch } from '../../models/resultSearch.model';
 import { SpotifyService } from '../../services/spotify.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 
 @Component({
@@ -10,18 +10,30 @@ import { debounceTime } from 'rxjs';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
   public resultSearch!: ResultSearch;
   public paramSearch = new FormControl('');
 
   constructor(private spotifyService: SpotifyService) {}
 
-  ngOnInit(): void {
-    this.search(this.paramRandom());
+  ngOnDestroy(): void {
+    const value = this.paramSearch.value;
+    if (value) {
+      localStorage.setItem('paramSearch', value);
+    }else{
+      localStorage.setItem('paramSearch', '');
+    }
+  }
 
-    this.paramSearch.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
+  ngOnInit(): void {
+    const param = this.getParamSearched();
+    this.search(param);
+
+    this.paramSearch.valueChanges.pipe(debounceTime(300)).subscribe((value) => {
       if (value) {
         this.search(value);
+      }else{
+        this.search(this.paramRandom());
       }
     });
   }
@@ -41,5 +53,14 @@ export class ListComponent implements OnInit {
     const letters = 'abcdefghijklmnopqrstuvwxyz';
     const index = Math.floor(Math.random() * letters.length);
     return letters[index];
+  }
+
+  getParamSearched(): string {
+    const value = localStorage.getItem('paramSearch');
+    if (value && value.length > 0) {
+      this.paramSearch.setValue(value);
+      return value;
+    }
+    return this.paramRandom();
   }
 }
