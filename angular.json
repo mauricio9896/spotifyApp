@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "castor_test": {
+    "spotifyApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/castor_test",
+            "outputPath": "dist/spotifyApp",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "castor_test:build:production"
+              "buildTarget": "spotifyApp:build:production"
             },
             "development": {
-              "buildTarget": "castor_test:build:development"
+              "buildTarget": "spotifyApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "castor_test:build"
+            "buildTarget": "spotifyApp:build"
           }
         },
         "test": {
