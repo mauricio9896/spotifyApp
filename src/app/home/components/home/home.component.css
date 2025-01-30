@@ -1,16 +1,17 @@
 .content{
-  height: calc(100vh - 2*var(--unidad));
-  width: 100%;
   display: flex;
+  height: 100vh;
   flex-direction: column;
-  gap: var(--unidad);
   overflow: hidden;
+  gap: var(--unidad);
+  padding: var(--unidad);
 }
 
 .main{
   flex: 1;
   display: flex;
   gap: var(--unidad);
+  height: calc( 100vh - 3*var(--unidad)  - 60px);
 }
 
 .content-left{
@@ -31,4 +32,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.player{
+  height: 70px;
 }

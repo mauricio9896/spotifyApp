@@ -15,11 +15,11 @@ export class HeaderComponent implements OnInit {
   constructor( private playerService : PlayerService, private route : Router ) { }
 
   ngOnInit(): void {
-    this.playerService.getDataUser().then( (data) => {
-      if (data){
-        this.user = data;
-      }
-    });
+    // this.playerService.getDataUser().then( (data) => {
+    //   if (data){
+    //     this.user = data;
+    //   }
+    // });
   }
 
   navigationBack(){

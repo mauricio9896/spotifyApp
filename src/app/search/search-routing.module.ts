@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { ListComponent } from "./components/list-search/list.component";
+import { ListComponent } from "./components/list/list.component";
 import { DetailSongComponent } from "./components/detail-song/detail-song.component";
 
 export const SearchRoutes: Routes = [

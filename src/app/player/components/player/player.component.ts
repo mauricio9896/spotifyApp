@@ -23,15 +23,15 @@ export class PlayerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.createWebPlayerSDK();
+    // this.createWebPlayerSDK();
 
-    this.volumen.valueChanges
-      .pipe(debounceTime(30))
-      .subscribe((value) => this.playerService.setVolumen(value));
+    // this.volumen.valueChanges
+    //   .pipe(debounceTime(30))
+    //   .subscribe((value) => this.playerService.setVolumen(value));
 
-    this.playerService.idTrack$.subscribe((id) => {
-      id && this.detailById('track', id);
-    });
+    // this.playerService.idTrack$.subscribe((id) => {
+    //   id && this.detailById('track', id);
+    // });
   }
 
   playSong(track: any) {

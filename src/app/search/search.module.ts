@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ListComponent } from './components/list-search/list.component';
+import { ListComponent } from './components/list/list.component';
 import { SearchRoutes } from './search-routing.module';
 import { ListAlbumsComponent } from './components/list-albums/list-albums.component';
 import { ListArtistsComponent } from './components/list-artists/list-artists.component';

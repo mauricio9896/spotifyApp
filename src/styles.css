@@ -9,12 +9,21 @@
   --unidad: 8px;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   background-color: var(--primary-color);
-  padding: var(--unidad);
+  padding: 0px;
   margin: 0px;
-  box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  overflow: hidden;
 }
 
 .card {

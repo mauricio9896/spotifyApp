@@ -12,12 +12,12 @@ export class PlayerService {
   public idTrack$ = new BehaviorSubject<string>('');
 
   constructor(private authService: AuthService) {
-    this.token = this.authService.verifyToken();
-    this.spotifyApi = new SpotifyWebApi();
-    this.spotifyApi.setAccessToken(this.token);
+    // this.token = this.authService.verifyToken();
+    // this.spotifyApi = new SpotifyWebApi();
+    // this.spotifyApi.setAccessToken(this.token);
   }
 
-  private async getDevies(): Promise<string> {
+  private async getDevices(): Promise<string> {
     const { devices } = await this.spotifyApi.getMyDevices();
     const device = devices.find((device: any) => device.name === 'Web_SDK_App');
     return device?.id || '';
@@ -38,7 +38,7 @@ export class PlayerService {
 
   async playSong(uri: string) {
     const position_ms = await this.getStateSong(uri);
-    const device_id = await this.getDevies();
+    const device_id = await this.getDevices();
     this.spotifyApi.play({
       device_id,
       uris: [uri],
