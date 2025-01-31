@@ -37,3 +37,18 @@
 .player{
   height: 70px;
 }
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .content-left {
+    display: none; /* OCULTA el sidebar izquierdo en pantallas pequeñas */
+  }
+
+  .content-right {
+    width: 100%; /* Hace que ocupe toda la pantalla */
+  }
+}

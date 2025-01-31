@@ -1,38 +1,98 @@
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
-  padding: calc(var(--unidad)) 20px calc(2*var(--unidad)) 0px;
+  height: 70px;
+  padding: var(--unidad) 20px var(--unidad) 0px;
+  margin: 0px;
 }
 
 .search {
-  flex: 0.6;
+  flex: 0.5;
   display: flex;
   justify-content: start;
   align-items: center;
   position: relative;
-  gap: calc(2*var(--unidad));
+  gap: calc(2 * var(--unidad));
 }
 
-.user-name{
-  color: var(--fourth-color);
-}
-
-.btns-add{
+.info {
   display: flex;
-  gap: 10px;
-  button{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background-color: var(--third-color);
-    color: aliceblue;
+  flex: 0.5;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+}
 
-    &:hover{
-      outline: 1px solid var(--third-color);
-    }
+.user-name {
+  color: var(--fourth-color);
+  display: flex;
+  flex: 0.8;
+}
+
+.options {
+  display: flex;
+  flex: 0.2;
+  justify-content: end;
+  gap: var(--unidad);
+}
+
+.btns-add {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: var(--third-color);
+  color: aliceblue;
+
+  &:hover {
+    outline: 1px solid var(--third-color);
+  }
+}
+
+.search-input {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  min-width: 300px;
+  width: 70%;
+}
+
+.search-input input[type="text"] {
+  width: 100%;
+  padding: 8px 40px 8px 30px;
+  border: 1px solid var(--second-color);
+  border-radius: 20px;
+  background-color: var(--third-color);
+  color: whitesmoke;
+  height: 40px;
+}
+
+.search-input input:focus {
+  outline: 1px solid var(--third-color);
+}
+
+.search-input input:hover {
+  outline: 1px solid var(--third-color);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: auto;
+    margin-bottom: var(--unidad);
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .info {
+    width: 100%;
+    padding: var(--unidad);
   }
 }

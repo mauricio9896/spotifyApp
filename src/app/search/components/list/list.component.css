@@ -5,7 +5,6 @@
   height: calc( 100vh - 3*var(--unidad)  - 60px - 60px);
   overflow-y: scroll;
   padding: 10px;
-  /* background-color: aqua; */
 }
 
 .list {
@@ -19,31 +18,4 @@
   top: calc(var(--unidad) + 10px);
   left: 70px;
   width: 40%;
-}
-
-
-.search {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  position: relative;
-  gap: calc(2*var(--unidad));
-}
-
-.search input[type="text"] {
-  width: 100%;
-  padding: 8px 40px 8px 30px;
-  border: 1px solid var(--second-color);
-  border-radius: 20px;
-  background-color: var(--third-color);
-  color: whitesmoke;
-  height: 25px;
-}
-
-.search input:focus {
-  outline: 1px solid var(--third-color);
-}
-
-.search input:hover {
-  outline: 1px solid var(--third-color);
 }
