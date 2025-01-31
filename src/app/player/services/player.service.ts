@@ -12,9 +12,9 @@ export class PlayerService {
   public idTrack$ = new BehaviorSubject<string>('');
 
   constructor(private authService: AuthService) {
-    // this.token = this.authService.verifyToken();
-    // this.spotifyApi = new SpotifyWebApi();
-    // this.spotifyApi.setAccessToken(this.token);
+    this.token = this.authService.verifyToken();
+    this.spotifyApi = new SpotifyWebApi();
+    this.spotifyApi.setAccessToken(this.token);
   }
 
   private async getDevices(): Promise<string> {

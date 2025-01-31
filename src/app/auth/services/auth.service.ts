@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  private client_id: string = 'a3c73b55adf645729eec598cf3bdff9a';
+  private client_id: string = '1fea71b1b72346958ff102e2e915c548';
 
   constructor() { }
 
