@@ -15,7 +15,8 @@
 }
 
 .content-left{
-  width: 370px;
+  width: 350px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: var(--unidad);
@@ -45,10 +46,10 @@
   }
 
   .content-left {
-    display: none; /* OCULTA el sidebar izquierdo en pantallas pequeñas */
+    display: none;
   }
 
   .content-right {
-    width: 100%; /* Hace que ocupe toda la pantalla */
+    width: 100%;
   }
 }
