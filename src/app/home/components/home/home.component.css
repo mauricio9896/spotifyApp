@@ -11,7 +11,7 @@
   flex: 1;
   display: flex;
   gap: var(--unidad);
-  height: calc( 100vh - 3*var(--unidad)  - 60px);
+  overflow: hidden;
 }
 
 .content-left{
@@ -35,7 +35,7 @@
 }
 
 .player{
-  height: 70px;
+  height: 60px;
 }
 
 /* Responsividad */
