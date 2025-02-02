@@ -1,26 +1,27 @@
 @if (true) {
 <div class="content">
   <div class="song">
-    @if (track ) {
+    @if (track) {
      <app-card-player [song]="track" ></app-card-player>
     }@else {
     <div class="img-empty"></div>
     }
   </div>
+
   <div class="buttons">
-    <button class="btn">
+    <button type="button" class="btn btn-back">
       <i class="fa-solid fa-backward-step"></i>
     </button>
     @if (playingSong) {
-    <button class="btn-play" (click)="pauseSong(track)">
+    <button type="button" class="btn-play" (click)="pauseSong(track)">
       <i class="fa-solid fa-pause"></i>
     </button>
     }@else {
-    <button class="btn-play" (click)="playSong(track)">
+    <button type="button" class="btn-play" (click)="playSong(track)">
       <i class="fa-solid fa-play"></i>
     </button>
     }
-    <button class="btn" (click)="nextTrack(track)">
+    <button type="button" class="btn btn-next " (click)="nextTrack(track)">
       <i class="fa-solid fa-forward-step"></i>
     </button>
   </div>

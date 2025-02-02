@@ -8,7 +8,7 @@
 }
 
 .image img {
-  height: 200px;
+  height: clamp(100px, 100px, 300px);
 }
 
 button {

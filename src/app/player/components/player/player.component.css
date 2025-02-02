@@ -106,3 +106,23 @@ input[type='range']::-webkit-slider-thumb {
   border-radius: var(--unidad);
   opacity: 0.8;
 }
+
+
+@media (max-width: 724px) {
+  .volumen{
+    display: none;
+  }
+
+  .btn-next{
+    display: none;
+  }
+
+  .btn-back{
+    display: none;
+  }
+
+  .buttons{
+    justify-content: end;
+  }
+}
+
