@@ -1,7 +1,6 @@
 .card{
   padding: 12px;
-  width: 130px;
-  overflow: hidden;
+  width: 155px;
 }
 
 .card:hover{
@@ -31,13 +30,18 @@
 .name{
   height: 22px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .name span {
   font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .info span {
   color: var(--fourth-color);
   font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

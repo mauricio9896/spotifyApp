@@ -1,5 +1,6 @@
 .card {
   position: relative;
+  width: 140px;
 }
 
 .card:hover{
@@ -16,6 +17,7 @@
   bottom: -10px;
   right: -10px;
   opacity: 0;
+  z-index: 10;
 }
 
 .image{
@@ -28,6 +30,8 @@
 
 .name span {
   font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .info span {

@@ -21,10 +21,6 @@
   width: 40%;
 }
 
-
-
-
-
 @media (max-width: 768px) {
   .content{
     height: calc( 100vh - 3*var(--unidad)  - 260px);

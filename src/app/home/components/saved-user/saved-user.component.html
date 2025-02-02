@@ -1,12 +1,5 @@
 @if(savedTracks){
   <div class="content">
-    <div class="header">
-      <i class="fa-solid fa-music"></i>
-      <span>Tu Biblioteca</span>
-    </div>
-
-    <div class="body">
       <app-list-songs [tracks]="savedTracks.items" [savedTracks]="true" ></app-list-songs>
-    </div>
   </div>
 }

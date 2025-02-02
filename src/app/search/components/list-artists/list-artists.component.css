@@ -1,6 +1,7 @@
 .list-artists{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;

@@ -27,6 +27,11 @@ ul {
   font-weight: 550;
 }
 
+#library{
+  display: none;
+}
+
+
 @media (max-width: 1024px) {
   ul {
     display: flex;
@@ -58,4 +63,11 @@ ul {
       }
     }
   }
+
+  #library{
+    display: block;
+  }
 }
+
+
+

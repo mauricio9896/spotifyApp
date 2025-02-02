@@ -15,8 +15,8 @@
 }
 
 .content-left {
-  width: 350px;
-  min-width: 280px;
+  min-width: 260px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   gap: var(--unidad);

@@ -45,7 +45,6 @@ export class PlayerComponent implements OnInit {
   }
 
   nextTrack(track : any){
-    console.log('track :>> ', track);
     this.playerService.nextTrack(track.album.id);
   }
 
