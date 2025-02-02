@@ -1,8 +1,8 @@
 <div class="content">
-  @if ( savedTracks ) {
-    <h3>Canciones Guardadas</h3>
-  }@else {
-    <h3>Canciones</h3>
+  @if (!savedTracks) {
+    <h3 style="margin-bottom: 0.5rem;" >Canciones</h3>
+  }@else{
+    <h3 style="margin-bottom: 0.5rem;" >Canciones Guardadas</h3>
   }
   <ul>
     @for (song of tracks; track $index) {
