@@ -1,22 +1,13 @@
 <div class="content list">
-
-  <!-- <div class="header">
-    <div class="search">
-      <input type="text" [formControl]="paramSearch" placeholder="¿Qué quieres reproducir?">
-    </div>
-  </div> -->
-
   @if (resultSearch) {
-  <div>
-    <div class="songs">
-      <app-list-songs [tracks]="resultSearch.tracks.items"></app-list-songs>
-    </div>
-    <div class="artist">
-      <app-list-artists [artists]="resultSearch.artists"></app-list-artists>
-    </div>
-    <div class="albums">
-      <app-list-albums [albums]="resultSearch.albums"></app-list-albums>
-    </div>
+  <div class="songs">
+    <app-list-songs [tracks]="resultSearch.tracks.items"></app-list-songs>
+  </div>
+  <div class="artist">
+    <app-list-artists [artists]="resultSearch.artists"></app-list-artists>
+  </div>
+  <div class="albums">
+    <app-list-albums [albums]="resultSearch.albums"></app-list-albums>
   </div>
   }
 </div>

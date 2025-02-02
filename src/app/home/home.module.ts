@@ -8,7 +8,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { PlayerModule } from '../player/player.module';
 import { SavedUserComponent } from './components/saved-user/saved-user.component';
 import { SearchModule } from "../search/search.module";
-import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     HeaderComponent,
     SavedUserComponent,
-    FooterComponent,
   ],
   imports: [
     CommonModule,
