@@ -1,8 +1,6 @@
 <div class="content">
 
   <div class="main">
-
-
     <div class="content-left">
       <div class="content-nav card">
         <app-navbar></app-navbar>
@@ -13,17 +11,6 @@
     </div>
 
     <div class="content-right card">
-
-      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Button with data-bs-target
-      </button>
-
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
-          user activates the relevant trigger.
-        </div>
-      </div>
       <app-header></app-header>
       <router-outlet></router-outlet>
     </div>
@@ -31,5 +18,9 @@
 
   <div class="player">
     <app-player></app-player>
+  </div>
+
+  <div class="footer">
+    <app-navbar></app-navbar>
   </div>
 </div>
