@@ -1,5 +1,6 @@
 .content {
   max-height: calc(100vh - 2 * var(--unidad) - 160px);
+  height: calc(100vh - 2 * var(--unidad) - 160px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -14,13 +15,24 @@
   }
 }
 
-.btn-player {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
+.btn-start {
+  height: 30px;
+  border-radius: 4px;
+  background-color: rgba(64, 83, 64, 0.9);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  width: clamp(150px, 20vw, 200px);
+  font-weight: 500;
+  i{
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background-color: rgba(106, 139, 106, 0.9);
+  }
+
 }
 
 .banner-song {
@@ -58,26 +70,28 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+#name-song {
+  font-size: clamp(20px, 28px, 36px);
+  font-weight: bold;
+  margin: 8px 0px;
+  max-height: clamp(28px, 36px, 44px);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .song {
   width: 100%;
   font-size: 12px;
+  max-height: clamp(28px, 3vw, 24px);
   font-weight: bold;
   text-transform: capitalize;
   overflow: hidden;
   text-overflow: ellipsis;
   text-wrap: none;
-}
-
-#name-song {
-  font-size: clamp(20px, 3vw, 42px);
-  font-weight: bold;
-  margin: 8px 0px;
-  max-height: clamp(20px, 3vw, 42px);
-  overflow: hidden;
-  text-overflow: ellipsis;
+  vertical-align: middle;
 }
 
 .player {

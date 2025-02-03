@@ -5,7 +5,7 @@
   --second-color: #121212;
   --third-color: #242424;
   --fourth-color: #767676;
-  --prueba: lightblue;
+  --fifth-color: #1ed760;
   --unidad: 8px;
 }
 
@@ -52,7 +52,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #1ed760;
+  background-color: var(--fifth-color);
   border: none;
   cursor: pointer;
   font-size: 18px;

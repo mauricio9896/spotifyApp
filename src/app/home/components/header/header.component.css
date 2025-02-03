@@ -40,6 +40,8 @@
 .btns-add {
   height: 40px;
   width: 40px;
+  min-height: 40px;
+  min-width: 40px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -94,5 +96,9 @@
   .info {
     width: 100%;
     padding: var(--unidad);
+  }
+
+  .search-input {
+    min-width: 260px;
   }
 }

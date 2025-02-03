@@ -21,8 +21,9 @@
 
   @switch ( type ) {
     @case ( 'track' ) {
-    <button type="button" class="btn-player" (click)="playSong( detail )">
+    <button type="button" class="btn-start"  (click)="playSong( detail )">
       <i class="fa-solid fa-play"></i>
+      <span>Reproducir</span>
     </button>
     }
     @case ('album') {
