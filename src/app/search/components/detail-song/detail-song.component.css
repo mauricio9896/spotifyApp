@@ -1,11 +1,12 @@
 .content {
-  max-height: calc(100vh - 2 * var(--unidad) - 180px);
-  overflow-y : auto;
+  max-height: calc(100vh - 2 * var(--unidad) - 160px);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--unidad);
   padding: 10px;
-
+  overflow-x: hidden;
+  position: relative;
   &:hover {
     .btn-player {
       transition: opacity 0.5s ease-in-out;
@@ -15,15 +16,15 @@
 
 .btn-player {
   position: absolute;
-  top: 270px;
-  right: 30px;
+  bottom: 0px;
+  right: 0px;
   width: 60px;
   height: 60px;
   font-size: 24px;
 }
 
 .banner-song {
-  height: 180px;
+  min-height: 180px;
   background: rgb(36, 47, 36);
   background: linear-gradient(
     0deg,
@@ -34,41 +35,70 @@
   border-radius: var(--unidad);
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.content-song {
+.image{
   display: flex;
-  justify-content: start;
-  align-items: end;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .image img {
-  height: 140px;
-  width: 140px;
+  height: clamp(95px, 20vw, 140px);
+  width: clamp(95px, 20vw, 140px);
 }
 
 .detail-song {
-  flex: 1;
+  height: clamp(80px, 20vw, 140px);
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .song {
+  width: 100%;
   font-size: 12px;
   font-weight: bold;
   text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: none;
 }
 
 #name-song {
-  font-size: 42px;
+  font-size: clamp(20px, 3vw, 42px);
   font-weight: bold;
   margin: 8px 0px;
+  max-height: clamp(20px, 3vw, 42px);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .player {
   width: 100%;
   margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    max-height: calc(100vh - 2 * var(--unidad) - 275px);
+  }
+
+  .banner-song {
+    min-height: 115px;
+    padding: 10px;
+  }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .content {
+    max-height: calc(100vh - 2 * var(--unidad) - 205px);
+  }
 }

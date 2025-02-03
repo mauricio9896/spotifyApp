@@ -1,37 +1,36 @@
 @if (detail) {
 <div class="content">
+
   <div class="banner-song">
-    <div class="content-song">
       <div class="image">
         @if ( type === 'track') {
-        <img *ngIf="detail.album" [src]="detail.album.images[0].url">
+        <img *ngIf="detail.album" [src]="detail.album.images[0].url" alt="image">
         }@else{
-        <img [src]="detail.images[0].url">
+        <img [src]="detail.images[0].url" alt="image">
         }
       </div>
       <div class="detail-song">
-        <span class="song">{{ type }}</span>
-        <span id="name-song">{{
-          detail.name }}</span>
+        <span id="name-song">
+          {{detail.name }}
+        </span>
         <span class="song" style="font-weight:500">
           {{ detail | detail }}
         </span>
       </div>
-    </div>
   </div>
 
   @switch ( type ) {
-  @case ( 'track' ) {
-  <button class="btn-player" (click)="playSong( detail )">
-    <i class="fa-solid fa-play"></i>
-  </button>
-  }
-  @case ('album') {
-  <app-list-songs [tracks]="detail.tracks.items"></app-list-songs>
-  }
-  @case ('artist') {
-  <app-list-songs [tracks]="topTracksArtist"></app-list-songs>
-  }
+    @case ( 'track' ) {
+    <button type="button" class="btn-player" (click)="playSong( detail )">
+      <i class="fa-solid fa-play"></i>
+    </button>
+    }
+    @case ('album') {
+    <app-list-songs [tracks]="detail.tracks.items"></app-list-songs>
+    }
+    @case ('artist') {
+    <app-list-songs [tracks]="topTracksArtist"></app-list-songs>
+    }
   }
 </div>
 }
