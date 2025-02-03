@@ -14,12 +14,12 @@ declare var Spotify: any;
 export class PlayerComponent implements OnInit {
   public track!: any; // definir el tipo
   public volumen: FormControl = new FormControl(100);
-  public playingSong : boolean = false;
+  public playingSong: boolean = false;
 
   constructor(
     private playerService: PlayerService,
-    private authService : AuthService,
-    private spotifyService: SpotifyService,
+    private authService: AuthService,
+    private spotifyService: SpotifyService
   ) {}
 
   ngOnInit(): void {
@@ -35,25 +35,28 @@ export class PlayerComponent implements OnInit {
   }
 
   playSong(track: any) {
+    if (!track) return;
     this.playingSong = true;
     this.playerService.playSong(track.uri);
   }
 
-  pauseSong(track : any) {
+  pauseSong(track: any) {
+    if (!track) return;
     this.playingSong = false;
     this.playerService.pauseSong();
   }
 
-  nextTrack(track : any){
+  nextTrack(track: any) {
+    if (!track) return;
     this.playerService.nextTrack(track.album.id);
   }
 
   detailById(type: string, id: string) {
+    if (!type || !id) return;
     this.spotifyService.detailById(type, id).subscribe((res) => {
-      if (res) {
-        this.track = res;
-        this.playSong(res);
-      }
+      if (!res) return;
+      this.track = res;
+      this.playSong(res);
     });
   }
 
