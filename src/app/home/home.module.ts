@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PlayerModule } from '../player/player.module';
 import { SavedUserComponent } from './components/saved-user/saved-user.component';
 import { SearchModule } from "../search/search.module";
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchModule } from "../search/search.module";
     CommonModule,
     RouterModule.forChild(HomeRoutes),
     PlayerModule,
-    SearchModule
+    SearchModule,
+    SharedModule
 ],
 })
 export class HomeModule { }

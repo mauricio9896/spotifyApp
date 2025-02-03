@@ -4,7 +4,7 @@
   padding: var(--unidad);
   align-items: center;
   border-radius: var(--unidad);
-  width: 80%;
+  width: 270px;
   cursor: default;
 }
 
@@ -30,14 +30,14 @@
 
 .info .name{
   font-size: 14px;
-  height: 20px;
+  height: 18px;
   overflow: hidden;
 }
 
 .info .artists {
   color: var(--fourth-color);
   font-size: 12px;
-  height: 20px;
+  height: 15px;
   overflow: hidden;
 }
 
